@@ -70,4 +70,18 @@ public class Main {
         impares = menorAMayor(impares);
         return impares;
     }
+
+    public static int[] parEImpar(int[] arreglo){
+        int[] arregloOrdenado = new int[arreglo.length];
+        int[] arregloPar = pares(arreglo);
+        int[] arregloImpar = impares(arreglo);
+
+        for (int i = 0; i < arregloPar.length - 1; i++) {
+            arregloOrdenado[i] = arregloPar[i];
+        }
+        for (int i = 0; i < arregloImpar.length - 1; i++) {
+            arregloOrdenado[i + arregloPar.length] = arregloImpar[i];
+        }
+        return arregloOrdenado;
+    }
 }

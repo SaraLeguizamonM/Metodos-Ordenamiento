@@ -1,8 +1,6 @@
 # Metodos de ordenamiento
 1. Crear un algoritmo que dado un arreglo de tamaño ‘n’ desordenado lo ordene de menor a mayor. 
-
 2. Crear un algoritmo que dado un arreglo de tamaño ‘n’ desordenado lo ordene de mayor a menor. 
-
 3. Crear un algoritmo que dado un arreglo de tamaño ‘n’ desordenado lo ordene de la siguiente manera: 
 Todos los números pares al inicio y todos los impares al final de manera ordenada. 
 

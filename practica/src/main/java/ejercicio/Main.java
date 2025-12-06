@@ -1,7 +1,6 @@
 package ejercicio;
 import java.util.Arrays;
 import java.util.Scanner;
-
 public class Main {
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
@@ -10,7 +9,7 @@ public class Main {
         System.out.println("Bienvenido a un programa de Metodos de Ordenamiento.");
         System.out.println("Que tan grande quieres que sea el arreglo?");
         int[] arreglo = new int[sc.nextInt()];
-        for(int i = 0; i < arreglo.length; i++){
+        for(int i = 0; i < arreglo.length; i++){ // Array full
             System.out.println("Introduce el valor del arreglo " + (i + 1));
             arreglo[i] = sc.nextInt();
         }
@@ -28,13 +27,13 @@ public class Main {
                 switch(tipo){
                     case "1":
 
-                        System.out.println("Tu arreglo ordenado seria... " + (Arrays.toString(menorAMayor(arreglo))));
+                        System.out.println("Tu arreglo ordenado seria... " + (Arrays.toString(menorAMayor(arreglo)))); // Print the array
                         break;
                     case "2":
-                        System.out.println("Tu arreglo ordenado seria... " + (Arrays.toString(mayorAMenor(arreglo))));
+                        System.out.println("Tu arreglo ordenado seria... " + (Arrays.toString(mayorAMenor(arreglo)))); // Print the array
                         break;
                     case "3":
-                        System.out.println("Tu arreglo ordenado seria... " + (Arrays.toString(parEImpar(arreglo))));
+                        System.out.println("Tu arreglo ordenado seria... " + (Arrays.toString(parEImpar(arreglo)))); // Print the array
                         break;
                     default:
                         System.out.println("Opción inválida, vuelve a intentar.");
@@ -56,40 +55,40 @@ public class Main {
 
     }
 
-    public static int[] menorAMayor (int[] arregloN){
-        for(int i = 0; i < arregloN.length; i++){
-            for(int j = 0; j < arregloN.length; j++){
-                if(arregloN[j] > arregloN[i]){
-                    int temp = arregloN[j];
-                    arregloN[j] = arregloN[i];
-                    arregloN[i] = temp;
+    public static int[] menorAMayor (int[] arregloN){ 
+        for(int i = 0; i < arregloN.length; i++){ 
+            for(int j = 0; j < arregloN.length; j++){ // Nested loop to compare each element
+                if(arregloN[j] > arregloN[i]){ // If the current element is greater than the next element
+                    int temp = arregloN[j]; // Swap the elements
+                    arregloN[j] = arregloN[i]; // using a temporary variable
+                    arregloN[i] = temp; // complete the swap
                 }
             }
         }
         return arregloN;
     }
-    public static int[] mayorAMenor (int[] arregloN){
+    public static int[] mayorAMenor (int[] arregloN){ 
         for(int i = 0; i < arregloN.length; i++){
-            for(int j = 0; j < arregloN.length; j++){
-                if(arregloN[j] < arregloN[i]){
-                    int temp = arregloN[j];
-                    arregloN[j] = arregloN[i];
-                    arregloN[i] = temp;
+            for(int j = 0; j < arregloN.length; j++){ // Nested loop to compare each element
+                if(arregloN[j] < arregloN[i]){ // If the current element is less than the next element
+                    int temp = arregloN[j]; // Swap the elements
+                    arregloN[j] = arregloN[i]; // using a temporary variable
+                    arregloN[i] = temp; // complete the swap
                 }
             }
         }
         return arregloN;
     }
     public static int[] parEImpar(int[] arreglo){
-        int[] arregloOrdenado = new int[arreglo.length];
-        int[] arregloPar = pares(arreglo);
-        int[] arregloImpar = impares(arreglo);
+        int[] arregloOrdenado = new int[arreglo.length]; // New array to store the ordered elements
+        int[] arregloPar = pares(arreglo); // Get the even numbers
+        int[] arregloImpar = impares(arreglo); // Get the odd numbers
 
         for (int i = 0; i < arregloPar.length ; i++) {
-            arregloOrdenado[i] = arregloPar[i];
+            arregloOrdenado[i] = arregloPar[i]; // Fill the new array with even numbers first
         }
         for (int i = 0; i < arregloImpar.length ; i++) {
-            arregloOrdenado[i + arregloPar.length] = arregloImpar[i];
+            arregloOrdenado[i + arregloPar.length] = arregloImpar[i]; // Then fill with odd numbers
         }
         return arregloOrdenado;
     }
@@ -97,7 +96,7 @@ public class Main {
     public static int[] pares(int[] arreglo){
         int acum = 0;
         for (int i = 0; i < arreglo.length ; i++){
-            if(arreglo[i] % 2 == 0){
+            if(arreglo[i] % 2 == 0){ // Check if the number is even
                 acum ++;
             }
         }
@@ -105,8 +104,8 @@ public class Main {
         int[] pares = new int[acum];
         int par = 0;
         for (int i = 0; i <arreglo.length ; i++){
-            if(arreglo[i] % 2 == 0){
-                pares[par] = arreglo[i];
+            if(arreglo[i] % 2 == 0){ // Check if the number is even
+                pares[par] = arreglo[i]; // Add to the even array
                 par++;
             }
         }
@@ -115,8 +114,8 @@ public class Main {
     }
     public static int[] impares(int[] arreglo){
         int acum = 0;
-        for (int i = 0; i < arreglo.length ; i++){
-            if(arreglo[i] % 2 != 0){
+        for (int i = 0; i < arreglo.length ; i++){ 
+            if(arreglo[i] % 2 != 0){ // Check if the number is odd
                 acum ++;
             }
         }
@@ -124,8 +123,8 @@ public class Main {
         int[] impares = new int[acum];
         int impar = 0;
         for (int i = 0; i <arreglo.length ; i++){
-            if(arreglo[i] % 2 != 0){
-                impares[impar] = arreglo[i];
+            if(arreglo[i] % 2 != 0){ // Check if the number is odd
+                impares[impar] = arreglo[i]; // Add to the odd array
                 impar++;
             }
         }
